@@ -16,7 +16,6 @@ export type FlagGroupMachine = {
     all: (fn?: "toggle" | "on" | "off") => void;
 };
 
-
 export function flag(options?: Partial<FlagMachineOptions>): FlagMachine {
     let current = $state(options?.init ?? false);
 
@@ -40,13 +39,16 @@ export function flag(options?: Partial<FlagMachineOptions>): FlagMachine {
 }
 
 export function flagGroup(flags: Record<string, boolean>) {
-    const toggles = Object.entries(flags).reduce((acc, [key, value]) => {
-        acc[key] = flag({ init: value });
-        return acc;
-    }, {} as Record<string, FlagMachine>);
+    const toggles = Object.entries(flags).reduce(
+        (acc, [key, value]) => {
+            acc[key] = flag({ init: value });
+            return acc;
+        },
+        {} as Record<string, FlagMachine>,
+    );
 
     return {
         ...toggles,
-        all: (fn = "toggle") => Object.values(toggles).forEach((toggler) => toggler[fn]())
+        all: (fn = "toggle") => Object.values(toggles).forEach((toggler) => toggler[fn]()),
     } as FlagGroupMachine;
 }

@@ -1,11 +1,12 @@
 {
     "name": "rune-machines",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "scripts": {
         "dev": "vite dev",
         "build": "vite build && npm run package",
         "preview": "vite preview",
         "package": "svelte-kit sync && svelte-package && publint",
+        "pub2npm": "npm run package && npm publish --access public",
         "prepublishOnly": "npm run package",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -13,6 +14,19 @@
         "lint": "prettier --check . && eslint .",
         "format": "prettier --write ."
     },
+    "keywords": [
+        "svelte",
+        "sveltekit",
+        "svelte-5",
+        "svelte-5-runes",
+        "sveltejs",
+        "svelte-state-machine",
+        "state-machine",
+        "state-machine-library",
+        "state-machine-svelte",
+        "state-machine-svelte-5",
+        "state-machine-sveltejs"
+    ],
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",

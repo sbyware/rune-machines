@@ -37,7 +37,7 @@ npm i -D rune-machines
 
     const pages = steps(pagesArr, {
         // loop: true,
-    })
+    });
 
     const emojiShown = flag();
 
@@ -67,24 +67,20 @@ npm i -D rune-machines
         <button on:click="{emojiShown.toggle}">Toggle emoji</button>
 
         {#if emojiShown.current}
-            <p>👋</p>
+        <p>👋</p>
         {/if}
     </div>
 
     <div>
         <h2>Flag Group Machine Demo</h2>
 
-        {#each Object.entries(featureFlags) as [featureName, flag]}
-            {#if featureName !== "all"}
-                <button on:click={() => flag.toggle()}>
-                    {featureName} is {flag.current ? "on" : "off"}
-                </button>
-            {/if}
-        {/each}
+        {#each Object.entries(featureFlags) as [featureName, flag]} {#if featureName !== "all"}
+        <button on:click="{()" ="">flag.toggle()}> {featureName} is {flag.current ? "on" : "off"}</button>
+        {/if} {/each}
 
-        <button on:click={() => featureFlags.all()}>Toggle all</button>
-        <button on:click={() => featureFlags.all("on")}>Turn all on</button>
-        <button on:click={() => featureFlags.all("off")}>Turn all off</button>
+        <button on:click="{()" ="">featureFlags.all()}>Toggle all</button>
+        <button on:click="{()" ="">featureFlags.all("on")}>Turn all on</button>
+        <button on:click="{()" ="">featureFlags.all("off")}>Turn all off</button>
     </div>
 </main>
 ```
@@ -94,7 +90,10 @@ npm i -D rune-machines
 ### `steps`
 
 ```ts
-function steps<T>(steps: T[], options?: { loop?: boolean }): {
+function steps<T>(
+    steps: T[],
+    options?: { loop?: boolean },
+): {
     current: T;
     next: () => void;
     prev: () => void;
@@ -118,7 +117,7 @@ function flag(initialState?: boolean): {
 
 ```ts
 function flagGroup<T extends Record<string, boolean>>(
-    flags: T
+    flags: T,
 ): {
     [K in keyof T]: {
         current: boolean;
