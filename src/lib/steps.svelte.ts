@@ -1,3 +1,7 @@
+/**
+ * Represents a machine that navigates through a series of steps.
+ * @template T - The type of each step in the machine.
+ */
 export type StepMachine<T> = {
     current: T;
     next: () => void;
@@ -6,11 +10,22 @@ export type StepMachine<T> = {
     start: () => void;
 };
 
+/**
+ * Options for configuring a StepMachine.
+ */
 export type StepMachineOptions = {
     initIndex: number;
     loop: boolean;
 };
 
+/**
+ * Creates and returns a StepMachine.
+ *
+ * @template T - The type of the elements in the steps array.
+ * @param {T[]} steps - An array of steps through which the machine will navigate.
+ * @param {Partial<StepMachineOptions>} options - Optional configuration for the step machine.
+ * @returns {StepMachine<T>} The created step machine instance.
+ */
 export function steps<T>(steps: T[], options?: Partial<StepMachineOptions>): StepMachine<T> {
     let i = $state(options?.initIndex ?? 0);
 

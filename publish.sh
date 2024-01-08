@@ -1,9 +1,15 @@
 #!/bin/bash
 
 pubtype=$1
+note=$2
 
 if [ -z "$pubtype" ]; then
-  echo "Usage: ./publish <major|minor|patch>"
+  echo "Usage: ./publish <major|minor|patch> <note>"
+  exit 1
+fi
+
+if [ -z "$note" ]; then
+  echo "Usage: ./publish <major|minor|patch> <note>"
   exit 1
 fi
 
@@ -12,9 +18,9 @@ if [ "$pubtype" != "major" ] && [ "$pubtype" != "minor" ] && [ "$pubtype" != "pa
   exit 1
 fi
 
-echo "Publishing $pubtype"
+echo "Publishing $pubtype ($note)"
 git add -A .
-git commit -m "chore: publish $pubtype"
+git commit -m "chore: publish $pubtype ($note)"
 pnpm version $pubtype
 pnpm lint
 pnpm package
