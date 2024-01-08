@@ -12,6 +12,7 @@ if [ "$pubtype" != "major" ] && [ "$pubtype" != "minor" ] && [ "$pubtype" != "pa
   exit 1
 fi
 
+echo "Publishing $pubtype"
 git add -A .
 git commit -m "chore: publish $pubtype"
 pnpm version $pubtype
@@ -19,3 +20,4 @@ pnpm lint
 pnpm package
 pnpm publish
 git push
+echo "Done"

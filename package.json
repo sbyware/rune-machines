@@ -3,6 +3,7 @@
     "author": "sby051",
     "displayName": "Rune Machines",
     "version": "0.0.4",
+    "license": "MIT",
     "scripts": {
         "dev": "vite dev",
         "build": "vite build && npm run package",
