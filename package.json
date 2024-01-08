@@ -2,7 +2,7 @@
     "name": "rune-machines",
     "author": "sby051",
     "displayName": "Rune Machines",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "license": "MIT",
     "scripts": {
         "dev": "vite dev",
