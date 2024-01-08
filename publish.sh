@@ -18,3 +18,4 @@ pnpm version $pubtype
 pnpm lint
 pnpm package
 pnpm publish
+git push
