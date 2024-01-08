@@ -1,18 +1,23 @@
 {
     "name": "rune-machines",
-    "version": "0.0.2",
+    "author": "sby051",
+    "displayName": "Rune Machines",
+    "version": "0.0.3",
     "scripts": {
         "dev": "vite dev",
         "build": "vite build && npm run package",
         "preview": "vite preview",
         "package": "svelte-kit sync && svelte-package && publint",
-        "pub2npm": "npm run package && npm publish --access public",
         "prepublishOnly": "npm run package",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
         "test": "vitest",
         "lint": "prettier --check . && eslint .",
         "format": "prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sby051/rune-machines.git"
     },
     "keywords": [
         "svelte",
